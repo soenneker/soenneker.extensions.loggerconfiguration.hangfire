@@ -2,7 +2,7 @@ using Hangfire.Console.Extensions.Serilog;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
-using Soenneker.Utils.Logger;
+using Soenneker.Extensions.Configuration.Logging;
 
 namespace Soenneker.Extensions.LoggerConfiguration.Hangfire;
 
@@ -14,14 +14,14 @@ public static class HangfireLoggerConfigExtension
     /// <summary>
     /// Adds the Hangfire sink unless the config says that we shouldn't
     /// </summary>
-    public static void AddHangfire(this Serilog.LoggerConfiguration loggerConfig, IConfigurationRoot configRoot)
+    public static void AddHangfire(this Serilog.LoggerConfiguration loggerConfig, IConfiguration config)
     {
-        var enabled = configRoot.GetValue<bool>("Hangfire:Enabled");
+        var enabled = config.GetValue<bool>("Hangfire:Enabled");
 
         if (!enabled)
             return;
 
-        LogEventLevel logEventLevel = LoggerUtil.GetLogEventLevelFromConfigRoot(configRoot);
+        LogEventLevel logEventLevel = config.GetLogEventLevel();
 
         loggerConfig.Enrich.WithHangfireContext();
         loggerConfig.WriteTo.Async(a => a.Hangfire(restrictedToMinimumLevel: logEventLevel));
