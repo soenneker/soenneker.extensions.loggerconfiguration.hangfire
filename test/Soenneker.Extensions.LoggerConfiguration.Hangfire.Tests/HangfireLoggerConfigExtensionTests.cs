@@ -1,11 +1,10 @@
 using Soenneker.Tests.Unit;
-using Xunit;
 
 namespace Soenneker.Extensions.LoggerConfiguration.Hangfire.Tests;
 
 public class HangfireLoggerConfigExtensionTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
