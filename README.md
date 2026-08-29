@@ -4,10 +4,23 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.loggerconfiguration.hangfire/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.loggerconfiguration.hangfire/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.LoggerConfiguration.Hangfire
-### Serilog LoggerConfiguration extension methods related to Hangfire
+Serilog LoggerConfiguration extension methods related to Hangfire.
 
 ## Installation
 
-```
+```bash
 dotnet add package Soenneker.Extensions.LoggerConfiguration.Hangfire
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.Extensions.LoggerConfiguration.Hangfire;
+
+// Given an existing Serilog.LoggerConfiguration named loggerConfig:
+loggerConfig.AddHangfire(config);
+```
+
+## Common operations
+
+- `AddHangfire()` - Adds the Hangfire sink unless the config says that we shouldn't.
