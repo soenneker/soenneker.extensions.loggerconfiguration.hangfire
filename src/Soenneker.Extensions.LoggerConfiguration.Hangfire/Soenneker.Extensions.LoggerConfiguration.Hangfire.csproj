@@ -47,6 +47,6 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
         <PackageReference Include="Hangfire.Console.Extensions.Serilog" Version="2.1.2" />
         <PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
-        <PackageReference Include="Soenneker.Extensions.Configuration.Logging" Version="4.0.235" />
+        <PackageReference Include="Soenneker.Extensions.Configuration.Logging" Version="4.0.236" />
     </ItemGroup>
 </Project>
